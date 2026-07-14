@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Digital</title>
+    <style>
+    body{
+        text-align: center;
+        font-family: Arial, Helvetica;
+    }
+    .card{
+        border: 1px solid #ccc;
+        width: 250px;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    </style>
+
+</head>
+<body>
+    <h1>Cardápio Digital</h1>
+
+    <input type="text"id="nome"  placeholder="Nome do lanche">
+    <input type="number" id="preco" placeholder="Preço">
+    <input type="text" id="categoria" placeholder="Categoria">
+    <button onclick=""></button>
+    <button>Adicionar item</button>
+
+    <div id ="cardapio"></div>
+
+    <script>
+        function listarprodutos(){
+        let produtos = [
+            {
+                nome: "X-Burger",
+                preco: 60.00,
+                categoria: "Lanche"
+            }
+            {
+                nome: "Pizza de Calabresa",
+                preco: 120.00,
+                categoria: "Lanche"
+            }
+        ];
+
+        function listarprodutos(){
+            let cardapio = document.getElementById("cardapio");
+
+            cardapio.innerHTML ="";
+
+            for(let i = 0; i < produtos.length; i++){
+                cardapio.innerHTML +=
+                "<div class='card'>"+
+                    "<h2>" + produtos[i].nome + "</h2>"+
+                    "<p>" + produtos[i].preco + "</p>"+
+                    "<p>" + produtos[i].categoria + "</p>"+
+                    "</div>"
+            }
+        }
+
+        function adicionaritem(){
+            let nome = document.getElementById("nome").value;
+            let preco = document.getElementById("preco").value;
+            let categoria = document.getElementById("categoria").value;
+
+            produtos.push({
+                nome : nome,
+                preco: preco, 
+                categoria: categoria,
+            });
+        }
+         listarprodutos();
+         //limpar os campos
+         document.getElementById("nome").value= "";
+         document.getElementById("preco").value= "";
+         document.getElementById("categoria").value= "";
+
+    </script>
+</body>
+</html>
